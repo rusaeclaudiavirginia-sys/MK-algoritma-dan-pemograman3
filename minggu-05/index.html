@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Pencarian Barcode Produk</title>
 
   <style>
@@ -13,12 +12,11 @@
 
     body {
       margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
+      font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #f5f0ff, #eee7ff, #ffffff);
       color: #333;
     }
 
-    /* HEADER */
     .header {
       background: linear-gradient(135deg, #6d28d9, #8b5cf6);
       color: white;
@@ -33,27 +31,28 @@
     }
 
     .header p {
-      margin: 8px 0 0;
-      font-size: 16px;
+      margin-top: 8px;
     }
 
-    /* CONTAINER */
     .container {
       width: 92%;
       max-width: 1150px;
       margin: 30px auto;
     }
 
-    /* IDENTITAS */
-    .identity {
+    .identity,
+    .card,
+    .search,
+    .result-card,
+    .comparison {
       background: white;
-      padding: 20px 25px;
+      padding: 25px;
       border-radius: 18px;
       box-shadow: 0 5px 18px rgba(0,0,0,0.07);
       margin-bottom: 25px;
     }
 
-    .identity h2 {
+    h2 {
       color: #6d28d9;
       margin-top: 0;
     }
@@ -62,27 +61,10 @@
       margin: 7px 0;
     }
 
-    /* DATA PRODUK */
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 18px;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.07);
-      margin-bottom: 25px;
-    }
-
-    .card h2 {
-      color: #6d28d9;
-      margin-top: 0;
-    }
-
-    /* TABEL */
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 15px;
-      overflow: hidden;
-      border-radius: 10px;
     }
 
     th {
@@ -105,19 +87,8 @@
       background: #f0e8ff;
     }
 
-    /* SEARCH */
     .search {
-      background: white;
-      padding: 30px;
-      border-radius: 18px;
       text-align: center;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.07);
-      margin-bottom: 25px;
-    }
-
-    .search h2 {
-      color: #6d28d9;
-      margin-top: 0;
     }
 
     .search p {
@@ -153,20 +124,6 @@
       background: #5b21b6;
     }
 
-    /* HASIL */
-    .result-card {
-      background: white;
-      padding: 25px;
-      border-radius: 18px;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.07);
-      margin-bottom: 25px;
-    }
-
-    .result-card h2 {
-      color: #6d28d9;
-      margin-top: 0;
-    }
-
     .found {
       margin-top: 15px;
       padding: 15px;
@@ -183,18 +140,8 @@
       border-radius: 8px;
     }
 
-    /* PERBANDINGAN */
     .comparison {
       background: linear-gradient(135deg, #ede9fe, #faf5ff);
-      padding: 25px;
-      border-radius: 18px;
-      margin-bottom: 25px;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.07);
-    }
-
-    .comparison h2 {
-      color: #6d28d9;
-      margin-top: 0;
     }
 
     .comparison-box {
@@ -216,7 +163,6 @@
       color: #7c3aed;
     }
 
-    /* FOOTER */
     .footer {
       text-align: center;
       padding: 25px;
@@ -224,7 +170,6 @@
     }
 
     @media (max-width: 600px) {
-
       .search input {
         width: 100%;
         margin-bottom: 10px;
@@ -242,35 +187,23 @@
   </style>
 </head>
 
-
 <body>
 
-  <!-- HEADER -->
   <div class="header">
     <h1>🔎 Pencarian Barcode Produk</h1>
     <p>Perbandingan Metode Linear Search dan Binary Search</p>
   </div>
 
-
   <div class="container">
 
-    <!-- IDENTITAS -->
     <div class="identity">
-
       <h2>👩‍💻 Identitas Mahasiswa</h2>
-
       <p><strong>Nama:</strong> Claudia Virginia Rusae</p>
-
       <p><strong>NIM:</strong> 31250001</p>
-
       <p><strong>Mata Kuliah:</strong> Algoritma dan Pemrograman 3</p>
-
     </div>
 
-
-    <!-- DATA PRODUK -->
     <div class="card">
-
       <h2>🛒 Data Produk</h2>
 
       <p>
@@ -279,86 +212,29 @@
       </p>
 
       <table>
-
         <tr>
           <th>No</th>
           <th>Barcode</th>
           <th>Nama Produk</th>
         </tr>
 
-        <tr>
-          <td>1</td>
-          <td>1001</td>
-          <td>Beras</td>
-        </tr>
-
-        <tr>
-          <td>2</td>
-          <td>1002</td>
-          <td>Gula</td>
-        </tr>
-
-        <tr>
-          <td>3</td>
-          <td>1003</td>
-          <td>Minyak Goreng</td>
-        </tr>
-
-        <tr>
-          <td>4</td>
-          <td>1004</td>
-          <td>Tepung</td>
-        </tr>
-
-        <tr>
-          <td>5</td>
-          <td>1005</td>
-          <td>Telur</td>
-        </tr>
-
-        <tr>
-          <td>6</td>
-          <td>1006</td>
-          <td>Susu</td>
-        </tr>
-
-        <tr>
-          <td>7</td>
-          <td>1007</td>
-          <td>Kopi</td>
-        </tr>
-
-        <tr>
-          <td>8</td>
-          <td>1008</td>
-          <td>Teh</td>
-        </tr>
-
-        <tr>
-          <td>9</td>
-          <td>1009</td>
-          <td>Garam</td>
-        </tr>
-
-        <tr>
-          <td>10</td>
-          <td>1010</td>
-          <td>Mie Instan</td>
-        </tr>
-
+        <tr><td>1</td><td>1001</td><td>Beras</td></tr>
+        <tr><td>2</td><td>1002</td><td>Gula</td></tr>
+        <tr><td>3</td><td>1003</td><td>Minyak Goreng</td></tr>
+        <tr><td>4</td><td>1004</td><td>Tepung</td></tr>
+        <tr><td>5</td><td>1005</td><td>Telur</td></tr>
+        <tr><td>6</td><td>1006</td><td>Susu</td></tr>
+        <tr><td>7</td><td>1007</td><td>Kopi</td></tr>
+        <tr><td>8</td><td>1008</td><td>Teh</td></tr>
+        <tr><td>9</td><td>1009</td><td>Garam</td></tr>
+        <tr><td>10</td><td>1010</td><td>Mie Instan</td></tr>
       </table>
-
     </div>
 
-
-    <!-- PENCARIAN -->
     <div class="search">
-
       <h2>🔍 Cari Produk Berdasarkan Barcode</h2>
 
-      <p>
-        Masukkan barcode produk yang ingin dicari.
-      </p>
+      <p>Masukkan barcode produk yang ingin dicari.</p>
 
       <input
         type="number"
@@ -366,140 +242,77 @@
         placeholder="Contoh: 1003"
       >
 
-      <button onclick="cariProduk()">
-        Cari Produk
-      </button>
-
+      <button onclick="cariProduk()">Cari Produk</button>
     </div>
 
-
-    <!-- LINEAR SEARCH -->
     <div class="result-card">
-
       <h2>📋 Hasil Linear Search</h2>
-
       <div id="hasilLinear">
-
-        <p>
-          Belum ada pencarian. Silakan masukkan barcode terlebih dahulu.
-        </p>
-
+        <p>Belum ada pencarian. Silakan masukkan barcode terlebih dahulu.</p>
       </div>
-
     </div>
 
-
-    <!-- BINARY SEARCH -->
     <div class="result-card">
-
       <h2>⚡ Hasil Binary Search</h2>
-
       <div id="hasilBinary">
-
-        <p>
-          Belum ada pencarian. Silakan masukkan barcode terlebih dahulu.
-        </p>
-
+        <p>Belum ada pencarian. Silakan masukkan barcode terlebih dahulu.</p>
       </div>
-
     </div>
 
-
-    <!-- PERBANDINGAN -->
     <div class="comparison">
-
       <h2>📊 Perbandingan Metode Pencarian</h2>
 
       <div class="comparison-box">
 
         <div class="method">
-
           <h3>Linear Search</h3>
-
           <p>
             Pencarian dilakukan satu per satu mulai dari data pertama
             sampai data yang dicari ditemukan.
           </p>
-
           <p>
             <strong>Kelebihan:</strong>
             sederhana dan tidak membutuhkan data terurut.
           </p>
-
         </div>
 
-
         <div class="method">
-
           <h3>Binary Search</h3>
-
           <p>
             Pencarian dilakukan dengan membagi data menjadi dua bagian
             secara berulang sampai data ditemukan.
           </p>
-
           <p>
             <strong>Syarat:</strong>
             data harus sudah terurut.
           </p>
-
         </div>
 
       </div>
-
     </div>
 
-
-    <!-- FOOTER -->
     <div class="footer">
-
-      <p>
-        💜 Tugas Algoritma dan Pemrograman 3
-      </p>
-
-      <p>
-        Claudia Virginia Rusae • 31250001
-      </p>
-
+      <p>💜 Tugas Algoritma dan Pemrograman 3</p>
+      <p>Claudia Virginia Rusae • 31250001</p>
     </div>
 
   </div>
 
-
   <script>
 
-    // =====================================
-    // DATA PRODUK
-    // =====================================
-
     const produk = [
-
       { barcode: 1001, produk: "Beras" },
-
       { barcode: 1002, produk: "Gula" },
-
       { barcode: 1003, produk: "Minyak Goreng" },
-
       { barcode: 1004, produk: "Tepung" },
-
       { barcode: 1005, produk: "Telur" },
-
       { barcode: 1006, produk: "Susu" },
-
       { barcode: 1007, produk: "Kopi" },
-
       { barcode: 1008, produk: "Teh" },
-
       { barcode: 1009, produk: "Garam" },
-
       { barcode: 1010, produk: "Mie Instan" }
-
     ];
 
-
-    // =====================================
-    // LINEAR SEARCH
-    // =====================================
 
     function linearSearch(data, target) {
 
@@ -508,332 +321,203 @@
       for (let i = 0; i < data.length; i++) {
 
         langkah.push({
-
           langkah: langkah.length + 1,
-
           posisi: i,
-
           barcode: data[i].barcode,
-
           produk: data[i].produk
-
         });
-
 
         if (data[i].barcode === target) {
 
           return {
-
             ditemukan: true,
-
             index: i,
-
             langkah: langkah
-
           };
-
         }
-
       }
 
-
       return {
-
         ditemukan: false,
-
         index: -1,
-
         langkah: langkah
-
       };
-
     }
 
-
-    // =====================================
-    // BINARY SEARCH
-    // =====================================
 
     function binarySearch(data, target) {
 
       let kiri = 0;
-
       let kanan = data.length - 1;
-
       let langkah = [];
-
 
       while (kiri <= kanan) {
 
-        let tengah =
-          Math.floor((kiri + kanan) / 2);
-
+        let tengah = Math.floor((kiri + kanan) / 2);
 
         langkah.push({
-
           langkah: langkah.length + 1,
-
           posisi: tengah,
-
           barcode: data[tengah].barcode,
-
           produk: data[tengah].produk
-
         });
-
 
         if (data[tengah].barcode === target) {
 
           return {
-
             ditemukan: true,
-
             index: tengah,
-
             langkah: langkah
-
           };
 
-        }
-
-
-        else if (target < data[tengah].barcode) {
+        } else if (target < data[tengah].barcode) {
 
           kanan = tengah - 1;
 
-        }
-
-
-        else {
+        } else {
 
           kiri = tengah + 1;
-
         }
-
       }
 
-
       return {
-
         ditemukan: false,
-
         index: -1,
-
         langkah: langkah
-
       };
-
     }
 
-
-    // =====================================
-    // MEMBUAT TABEL LANGKAH
-    // =====================================
 
     function buatTabel(hasil) {
 
       let tabel = `
-
         <table>
-
           <tr>
-
             <th>Langkah</th>
-
             <th>Posisi Array</th>
-
             <th>Barcode</th>
-
             <th>Nama Produk</th>
-
           </tr>
-
       `;
 
-
-      hasil.langkah.forEach(item => {
+      hasil.langkah.forEach(function(item) {
 
         tabel += `
-
           <tr>
-
             <td>${item.langkah}</td>
-
             <td>${item.posisi}</td>
-
             <td>${item.barcode}</td>
-
             <td>${item.produk}</td>
-
           </tr>
-
         `;
 
       });
 
-
-      tabel += `</table>`;
-
+      tabel += `
+        </table>
+      `;
 
       return tabel;
-
     }
 
 
-    // =====================================
-    // FUNGSI PENCARIAN
-    // =====================================
-
     function cariProduk() {
 
-      let input =
-        document.getElementById("barcodeInput").value;
-
+      let input = document.getElementById("barcodeInput").value;
 
       if (input === "") {
 
         alert("Silakan masukkan barcode terlebih dahulu!");
-
         return;
-
       }
-
 
       let target = Number(input);
 
 
-      // =====================================
       // LINEAR SEARCH
-      // =====================================
 
-      let hasilLinear =
-        linearSearch(produk, target);
+      let hasilLinear = linearSearch(produk, target);
 
-
-      let tampilanLinear =
-        buatTabel(hasilLinear);
-
+      let tampilanLinear = buatTabel(hasilLinear);
 
       if (hasilLinear.ditemukan) {
 
         tampilanLinear += `
-
           <div class="found">
-
-            ✅ <strong>Produk ditemukan!</strong><br><br>
+            ✅ <strong>Produk ditemukan!</strong>
+            <br><br>
 
             Nama Produk:
-            <strong>
-              ${produk[hasilLinear.index].produk}
-            </strong>
+            <strong>${produk[hasilLinear.index].produk}</strong>
 
             <br>
 
             Barcode:
-            <strong>
-              ${produk[hasilLinear.index].barcode}
-            </strong>
+            <strong>${produk[hasilLinear.index].barcode}</strong>
 
             <br>
 
             Jumlah langkah:
-            <strong>
-              ${hasilLinear.langkah.length}
-            </strong>
-
+            <strong>${hasilLinear.langkah.length}</strong>
           </div>
-
         `;
 
-      }
-
-
-      else {
+      } else {
 
         tampilanLinear += `
-
           <div class="not-found">
-
             ❌ Produk dengan barcode
             <strong>${target}</strong>
             tidak ditemukan.
-
           </div>
-
         `;
-
       }
-
 
       document.getElementById("hasilLinear").innerHTML =
         tampilanLinear;
 
 
-      // =====================================
       // BINARY SEARCH
-      // =====================================
 
-      let hasilBinary =
-        binarySearch(produk, target);
+      let hasilBinary = binarySearch(produk, target);
 
-
-      let tampilanBinary =
-        buatTabel(hasilBinary);
-
+      let tampilanBinary = buatTabel(hasilBinary);
 
       if (hasilBinary.ditemukan) {
 
         tampilanBinary += `
-
           <div class="found">
-
-            ✅ <strong>Produk ditemukan!</strong><br><br>
+            ✅ <strong>Produk ditemukan!</strong>
+            <br><br>
 
             Nama Produk:
-            <strong>
-              ${produk[hasilBinary.index].produk}
-            </strong>
+            <strong>${produk[hasilBinary.index].produk}</strong>
 
             <br>
 
             Barcode:
-            <strong>
-              ${produk[hasilBinary.index].barcode}
-            </strong>
+            <strong>${produk[hasilBinary.index].barcode}</strong>
 
             <br>
 
             Jumlah langkah:
-            <strong>
-              ${hasilBinary.langkah.length}
-            </strong>
-
+            <strong>${hasilBinary.langkah.length}</strong>
           </div>
-
         `;
 
-      }
+      } else {
 
-
-      else {
-
-        tampilanBinary+= `
-
+        tampilanBinary += `
           <div class="not-found">
-
             ❌ Produk dengan barcode
             <strong>${target}</strong>
             tidak ditemukan.
-
           </div>
-
         `;
-
       }
 
       document.getElementById("hasilBinary").innerHTML =
         tampilanBinary;
-
     }
 
   </script>
