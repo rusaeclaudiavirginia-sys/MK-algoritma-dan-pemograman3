@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Claudia Virginia | Algoritma & Pemrograman</title>
+  <title>Claudia Virginia | My Learning Space</title>
 
   <style>
     * {
@@ -19,50 +19,103 @@
 
     body {
       font-family: "Segoe UI", Arial, sans-serif;
-      color: #3d2852;
-      background: linear-gradient(135deg, #f8f1ff, #eee2ff, #fff7fd);
       min-height: 100vh;
+      color: #342344;
+      background:
+        radial-gradient(circle at 10% 10%, #e5c9ff 0, transparent 28%),
+        radial-gradient(circle at 90% 20%, #f1d7ff 0, transparent 25%),
+        radial-gradient(circle at 50% 100%, #dcc5ff 0, transparent 30%),
+        #faf7ff;
+      overflow-x: hidden;
     }
 
-    /* ===== NAVBAR ===== */
+    /* FLOATING DECORATION */
+
+    .circle {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(2px);
+      opacity: 0.35;
+      z-index: -1;
+    }
+
+    .circle.one {
+      width: 180px;
+      height: 180px;
+      background: #c89af0;
+      top: 20%;
+      left: -80px;
+    }
+
+    .circle.two {
+      width: 220px;
+      height: 220px;
+      background: #e4b8f5;
+      bottom: 5%;
+      right: -100px;
+    }
+
+    /* NAVBAR */
 
     nav {
       width: 90%;
       max-width: 1100px;
-      margin: 25px auto;
-      padding: 15px 25px;
+      margin: 22px auto;
+      padding: 14px 22px;
 
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
 
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(15px);
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(18px);
 
+      border: 1px solid rgba(255,255,255,0.9);
       border-radius: 50px;
-      box-shadow: 0 10px 30px rgba(93, 57, 125, 0.12);
+
+      box-shadow: 0 12px 35px rgba(76,45,105,0.10);
     }
 
-    .logo {
-      font-size: 18px;
-      font-weight: bold;
-      color: #7545a5;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      font-size: 16px;
+      font-weight: 800;
+      color: #7041a0;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: linear-gradient(135deg, #8250bd, #c080e2);
+      color: white;
+
+      border-radius: 13px;
+
+      box-shadow: 0 6px 15px rgba(110,62,155,0.25);
     }
 
     nav a {
       text-decoration: none;
-      color: #70567f;
-      font-size: 14px;
+      color: #765c84;
+      margin-left: 22px;
+      font-size: 13px;
       font-weight: 600;
-      margin-left: 20px;
       transition: 0.3s;
     }
 
     nav a:hover {
-      color: #9a5fd0;
+      color: #8d50c1;
     }
 
-    /* ===== HERO ===== */
+    /* HERO */
 
     .hero {
       width: 90%;
@@ -71,283 +124,356 @@
       text-align: center;
     }
 
-    .welcome {
-      display: inline-block;
-      padding: 10px 20px;
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 9px 18px;
+
+      background: rgba(255,255,255,0.75);
+      border: 1px solid white;
       border-radius: 30px;
 
-      background: white;
-      color: #8b55bd;
+      color: #8050ad;
+      font-size: 13px;
+      font-weight: 700;
 
-      font-size: 14px;
-      font-weight: bold;
-
-      box-shadow: 0 8px 25px rgba(90, 50, 120, 0.12);
-
-      margin-bottom: 25px;
+      box-shadow: 0 8px 25px rgba(82,47,111,0.10);
     }
 
     .hero h1 {
-      font-size: clamp(40px, 7vw, 70px);
-      line-height: 1.05;
-      margin-bottom: 25px;
-      color: #3d2852;
+      margin-top: 25px;
+
+      font-size: clamp(42px, 8vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -2px;
+
+      color: #352344;
     }
 
     .hero h1 span {
-      color: #9657ca;
+      background: linear-gradient(90deg, #7442a6, #bd70db);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .hero p {
+    .hero-description {
       max-width: 650px;
-      margin: auto;
+      margin: 25px auto 0;
 
-      color: #786482;
+      color: #796580;
       line-height: 1.8;
-      font-size: 16px;
+      font-size: 15px;
     }
 
-    .button-main {
-      display: inline-block;
+    .hero-buttons {
       margin-top: 30px;
-      padding: 14px 30px;
+    }
 
-      background: linear-gradient(135deg, #8050b5, #b06bda);
-      color: white;
+    .primary-btn {
+      display: inline-block;
+      padding: 13px 26px;
 
       text-decoration: none;
-      font-weight: bold;
+      color: white;
+
+      background: linear-gradient(135deg, #7544a9, #b36bda);
 
       border-radius: 30px;
 
-      box-shadow: 0 10px 25px rgba(119, 67, 160, 0.3);
+      font-size: 14px;
+      font-weight: 700;
+
+      box-shadow: 0 10px 25px rgba(111,61,155,0.28);
 
       transition: 0.3s;
     }
 
-    .button-main:hover {
+    .primary-btn:hover {
       transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(111,61,155,0.35);
     }
 
-    /* ===== PROFILE ===== */
+    /* PROFILE */
 
     .profile {
       width: 90%;
       max-width: 950px;
       margin: 0 auto 80px;
 
-      padding: 35px;
+      padding: 32px;
 
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(15px);
+      background: rgba(255,255,255,0.67);
+      backdrop-filter: blur(18px);
 
+      border: 1px solid rgba(255,255,255,0.9);
       border-radius: 30px;
 
-      box-shadow: 0 15px 40px rgba(81, 45, 109, 0.12);
-
-      text-align: center;
+      box-shadow: 0 18px 45px rgba(76,45,105,0.10);
     }
 
-    .profile h2 {
-      color: #68428a;
+    .profile-heading {
+      text-align: center;
       margin-bottom: 25px;
     }
 
-    .profile-content {
+    .profile-heading small {
+      color: #a17bad;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .profile-heading h2 {
+      color: #4b315e;
+      margin-top: 5px;
+    }
+
+    .profile-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 15px;
     }
 
-    .info {
+    .profile-item {
       padding: 20px;
-
-      background: #faf5ff;
-
+      background: rgba(250,245,255,0.9);
       border-radius: 20px;
+      text-align: center;
+      transition: 0.3s;
     }
 
-    .info span {
-      display: block;
-      font-size: 13px;
-      color: #9b83a8;
+    .profile-item:hover {
+      transform: translateY(-4px);
+    }
+
+    .profile-item .icon {
+      font-size: 25px;
       margin-bottom: 8px;
     }
 
-    .info strong {
-      color: #513568;
+    .profile-item span {
+      display: block;
+      color: #9a82a6;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .profile-item strong {
+      color: #543667;
       font-size: 14px;
     }
 
-    /* ===== TUGAS ===== */
+    /* SECTION */
 
-    .tasks {
+    .section {
       width: 90%;
       max-width: 1100px;
-      margin: auto;
+      margin: 0 auto 80px;
     }
 
-    .title {
+    .section-title {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 38px;
     }
 
-    .title h2 {
-      font-size: 32px;
-      color: #432c59;
-      margin-bottom: 10px;
+    .section-title small {
+      color: #a179b1;
+      font-weight: bold;
+      letter-spacing: 2px;
+      font-size: 11px;
     }
 
-    .title p {
-      color: #897394;
+    .section-title h2 {
+      margin-top: 7px;
+      font-size: 34px;
+      color: #3f2b50;
     }
+
+    .section-title p {
+      margin-top: 8px;
+      color: #806b8b;
+      font-size: 14px;
+    }
+
+    /* CARDS */
 
     .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
+      gap: 22px;
     }
 
     .card {
       position: relative;
 
-      padding: 28px;
+      padding: 27px;
 
-      background: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(14px);
 
-      border-radius: 25px;
+      border: 1px solid rgba(255,255,255,0.95);
+      border-radius: 26px;
 
-      box-shadow: 0 12px 30px rgba(79, 46, 105, 0.1);
-
-      transition: 0.35s;
+      box-shadow: 0 12px 35px rgba(77,45,104,0.10);
 
       overflow: hidden;
+
+      transition: 0.35s;
     }
 
     .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(83, 48, 111, 0.18);
+      transform: translateY(-9px);
+      box-shadow: 0 20px 45px rgba(77,45,104,0.17);
     }
 
-    .number {
-      width: 55px;
-      height: 55px;
+    .card::after {
+      content: "";
+      position: absolute;
+
+      width: 110px;
+      height: 110px;
+
+      border-radius: 50%;
+
+      background: #ead5fa;
+
+      top: -55px;
+      right: -55px;
+
+      opacity: 0.65;
+    }
+
+    .week-number {
+      position: relative;
+      z-index: 1;
+
+      width: 54px;
+      height: 54px;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      border-radius: 18px;
-
-      background: linear-gradient(135deg, #8050b5, #b36ddd);
+      border-radius: 17px;
 
       color: white;
-      font-weight: bold;
+      font-weight: 800;
 
-      margin-bottom: 20px;
+      background: linear-gradient(135deg, #7846aa, #b66ddd);
+
+      box-shadow: 0 8px 18px rgba(105,58,145,0.25);
     }
 
     .card h3 {
-      color: #55366d;
-      margin-bottom: 12px;
-      font-size: 20px;
+      margin-top: 20px;
+
+      color: #503464;
+      font-size: 19px;
     }
 
     .card p {
-      color: #806d8c;
-      font-size: 14px;
+      margin-top: 9px;
+
+      color: #806c8d;
+      font-size: 13px;
       line-height: 1.7;
 
-      min-height: 72px;
-
-      margin-bottom: 20px;
+      min-height: 65px;
     }
 
-    .card a {
+    .card-link {
       display: inline-block;
 
-      padding: 10px 20px;
+      margin-top: 15px;
+      padding: 9px 17px;
 
-      border: 1px solid #d7c0e8;
+      border: 1px solid #d9c2e8;
       border-radius: 25px;
 
       text-decoration: none;
 
-      color: #7546a0;
-      font-size: 14px;
-      font-weight: bold;
+      color: #75479b;
+      font-size: 12px;
+      font-weight: 800;
 
       transition: 0.3s;
     }
 
-    .card a:hover {
-      background: #8150b6;
+    .card-link:hover {
       color: white;
+      background: #8050b3;
+      border-color: #8050b3;
     }
 
-    /* ===== PROGRESS ===== */
+    /* PROGRESS */
 
-    .progress {
+    .progress-card {
       width: 90%;
-      max-width: 900px;
+      max-width: 850px;
 
-      margin: 80px auto;
-
+      margin: 0 auto 90px;
       padding: 35px;
 
       text-align: center;
 
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(15px);
 
+      border: 1px solid white;
       border-radius: 28px;
 
-      box-shadow: 0 12px 35px rgba(78, 45, 105, 0.1);
+      box-shadow: 0 15px 40px rgba(77,45,104,0.10);
     }
 
-    .progress h2 {
-      color: #513468;
-      margin-bottom: 10px;
+    .progress-icon {
+      font-size: 35px;
     }
 
-    .progress p {
-      color: #806d8c;
-      margin-bottom: 20px;
+    .progress-card h2 {
+      margin-top: 8px;
+      color: #4b315e;
     }
 
-    .bar {
-      width: 100%;
-      height: 15px;
+    .progress-card p {
+      margin: 8px 0 22px;
+      color: #806c8c;
+      font-size: 14px;
+    }
 
+    .progress-bar {
+      height: 14px;
       background: #eadff1;
-
       border-radius: 20px;
-
       overflow: hidden;
     }
 
-    .bar-fill {
+    .progress-fill {
       width: 100%;
       height: 100%;
-
-      background: linear-gradient(90deg, #7b4ab0, #b86fe0);
-
+      background: linear-gradient(90deg, #7848aa, #c078dd);
       border-radius: 20px;
     }
 
-    /* ===== FOOTER ===== */
+    .progress-text {
+      margin-top: 10px;
+      color: #8052a5;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    /* FOOTER */
 
     footer {
-      margin-top: 80px;
-
-      padding: 30px;
+      padding: 35px 20px;
 
       text-align: center;
 
-      background: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.55);
 
       color: #806c8c;
-
-      font-size: 13px;
+      font-size: 12px;
       line-height: 1.8;
     }
 
@@ -355,15 +481,15 @@
       color: #70429a;
     }
 
-    /* ===== HP ===== */
+    /* RESPONSIVE */
 
-    @media (max-width: 800px) {
+    @media (max-width: 850px) {
 
       .cards {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .profile-content {
+      .profile-grid {
         grid-template-columns: 1fr;
       }
 
@@ -383,20 +509,30 @@
       }
 
       .hero h1 {
-        font-size: 42px;
+        font-size: 45px;
+      }
+
+      .profile {
+        padding: 22px;
       }
     }
   </style>
 </head>
 
+
 <body>
+
+  <div class="circle one"></div>
+  <div class="circle two"></div>
+
 
   <!-- NAVBAR -->
 
   <nav>
 
-    <div class="logo">
-      💜 Claudia's Page
+    <div class="brand">
+      <div class="brand-icon">✦</div>
+      Claudia's Space
     </div>
 
     <div>
@@ -412,8 +548,8 @@
 
   <section class="hero">
 
-    <div class="welcome">
-      ✨ Welcome to My GitHub Page
+    <div class="tag">
+      ✨ My Learning Journey
     </div>
 
     <h1>
@@ -421,15 +557,19 @@
       <span>Pemrograman</span>
     </h1>
 
-    <p>
-      Selamat datang di halaman utama tugas Algoritma dan Pemrograman.
-      Di sini terdapat kumpulan tugas pembelajaran dari minggu ke minggu
-      yang telah saya kerjakan.
+    <p class="hero-description">
+      Selamat datang di halaman utama saya.
+      Website ini berisi kumpulan tugas, latihan, dan proses
+      pembelajaran Algoritma dan Pemrograman dari setiap minggu.
     </p>
 
-    <a href="#tugas" class="button-main">
-      Lihat Tugas Saya ↓
-    </a>
+    <div class="hero-buttons">
+
+      <a href="#tugas" class="primary-btn">
+        Jelajahi Tugas ✦
+      </a>
+
+    </div>
 
   </section>
 
@@ -438,23 +578,47 @@
 
   <section class="profile" id="profil">
 
-    <h2>👩🏻‍💻 Profil Mahasiswa</h2>
+    <div class="profile-heading">
 
-    <div class="profile-content">
+      <small>ABOUT ME</small>
 
-      <div class="info">
+      <h2>👩🏻‍💻 Profil Mahasiswa</h2>
+
+    </div>
+
+
+    <div class="profile-grid">
+
+      <div class="profile-item">
+
+        <div class="icon">👩🏻‍💻</div>
+
         <span>Nama</span>
+
         <strong>Claudia Virginia Rusae</strong>
+
       </div>
 
-      <div class="info">
+
+      <div class="profile-item">
+
+        <div class="icon">🪪</div>
+
         <span>NIM</span>
+
         <strong>31250001</strong>
+
       </div>
 
-      <div class="info">
+
+      <div class="profile-item">
+
+        <div class="icon">🎓</div>
+
         <span>Program Studi</span>
+
         <strong>Manajemen Informasi Kesehatan</strong>
+
       </div>
 
     </div>
@@ -464,14 +628,16 @@
 
   <!-- TUGAS -->
 
-  <section class="tasks" id="tugas">
+  <section class="section" id="tugas">
 
-    <div class="title">
+    <div class="section-title">
 
-      <h2>📚 Daftar Tugas</h2>
+      <small>MY PROJECTS</small>
+
+      <h2>📚 Koleksi Tugas</h2>
 
       <p>
-        Klik salah satu minggu untuk melihat tugas.
+        Pilih salah satu minggu untuk melihat tugas.
       </p>
 
     </div>
@@ -484,7 +650,7 @@
 
       <div class="card">
 
-        <div class="number">01</div>
+        <div class="week-number">01</div>
 
         <h3>Minggu 01</h3>
 
@@ -492,8 +658,8 @@
           Materi dan latihan awal Algoritma dan Pemrograman.
         </p>
 
-        <a href="./minggu-01/">
-          Buka Tugas →
+        <a href="./minggu-01/" class="card-link">
+          Lihat Tugas →
         </a>
 
       </div>
@@ -503,7 +669,7 @@
 
       <div class="card">
 
-        <div class="number">02</div>
+        <div class="week-number">02</div>
 
         <h3>Minggu 02</h3>
 
@@ -511,8 +677,8 @@
           Materi dan latihan pemrograman pada minggu kedua.
         </p>
 
-        <a href="./minggu-02/">
-          Buka Tugas →
+        <a href="./minggu-02/" class="card-link">
+          Lihat Tugas →
         </a>
 
       </div>
@@ -522,7 +688,7 @@
 
       <div class="card">
 
-        <div class="number">03</div>
+        <div class="week-number">03</div>
 
         <h3>Minggu 03</h3>
 
@@ -530,8 +696,8 @@
           Tugas dan latihan Algoritma dan Pemrograman.
         </p>
 
-        <a href="./minggu-03/">
-          Buka Tugas →
+        <a href="./minggu-03/" class="card-link">
+          Lihat Tugas →
         </a>
 
       </div>
@@ -541,16 +707,16 @@
 
       <div class="card">
 
-        <div class="number">04</div>
+        <div class="week-number">04</div>
 
         <h3>Minggu 04</h3>
 
         <p>
-          Program mencari 3 angka terbesar menggunakan JavaScript.
+          Program mencari tiga angka terbesar menggunakan JavaScript.
         </p>
 
-        <a href="./minggu-04/">
-          Buka Tugas →
+        <a href="./minggu-04/" class="card-link">
+          Lihat Tugas →
         </a>
 
       </div>
@@ -560,16 +726,16 @@
 
       <div class="card">
 
-        <div class="number">05</div>
+        <div class="week-number">05</div>
 
         <h3>Minggu 05</h3>
 
         <p>
-          Program pencarian barcode produk menggunakan Binary Search.
+          Pencarian barcode produk menggunakan metode Binary Search.
         </p>
 
-        <a href="./minggu-05/">
-          Buka Tugas →
+        <a href="./minggu-05/" class="card-link">
+          Lihat Tugas →
         </a>
 
       </div>
@@ -579,7 +745,7 @@
 
       <div class="card">
 
-        <div class="number">06</div>
+        <div class="week-number">06</div>
 
         <h3>Minggu 06</h3>
 
@@ -587,8 +753,8 @@
           Tugas dan latihan Algoritma dan Pemrograman minggu keenam.
         </p>
 
-        <a href="./minggu-06/">
-          Buka Tugas →
+        <a href="./minggu-06/" class="card-link">
+          Lihat Tugas →
         </a>
 
       </div>
@@ -601,16 +767,26 @@
 
   <!-- PROGRESS -->
 
-  <section class="progress" id="progress">
+  <section class="progress-card" id="progress">
 
-    <h2>🚀 Progress Pembelajaran</h2>
+    <div class="progress-icon">
+      🚀
+    </div>
+
+    <h2>Learning Progress</h2>
 
     <p>
-      Tugas telah tersusun hingga Minggu 06.
+      Perjalanan pembelajaran saya telah mencapai Minggu 06.
     </p>
 
-    <div class="bar">
-      <div class="bar-fill"></div>
+    <div class="progress-bar">
+
+      <div class="progress-fill"></div>
+
+    </div>
+
+    <div class="progress-text">
+      06 Weeks Completed ✨
     </div>
 
   </section>
@@ -621,7 +797,7 @@
   <footer>
 
     <p>
-      © 2026 <strong>Claudia Virginia Rusae</strong>
+      Made with 💜 by <strong>Claudia Virginia Rusae</strong>
     </p>
 
     <p>
@@ -629,6 +805,7 @@
     </p>
 
   </footer>
+
 
 </body>
 </html>
