@@ -3,29 +3,632 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tugas Algoritma dan Pemrograman</title>
+
+  <title>Claudia Virginia | Algoritma & Pemrograman</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #3d2852;
+      background: linear-gradient(135deg, #f8f1ff, #eee2ff, #fff7fd);
+      min-height: 100vh;
+    }
+
+    /* ===== NAVBAR ===== */
+
+    nav {
+      width: 90%;
+      max-width: 1100px;
+      margin: 25px auto;
+      padding: 15px 25px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(15px);
+
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(93, 57, 125, 0.12);
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: bold;
+      color: #7545a5;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #70567f;
+      font-size: 14px;
+      font-weight: 600;
+      margin-left: 20px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #9a5fd0;
+    }
+
+    /* ===== HERO ===== */
+
+    .hero {
+      width: 90%;
+      max-width: 1000px;
+      margin: 90px auto 70px;
+      text-align: center;
+    }
+
+    .welcome {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 30px;
+
+      background: white;
+      color: #8b55bd;
+
+      font-size: 14px;
+      font-weight: bold;
+
+      box-shadow: 0 8px 25px rgba(90, 50, 120, 0.12);
+
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 70px);
+      line-height: 1.05;
+      margin-bottom: 25px;
+      color: #3d2852;
+    }
+
+    .hero h1 span {
+      color: #9657ca;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+
+      color: #786482;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .button-main {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 30px;
+
+      background: linear-gradient(135deg, #8050b5, #b06bda);
+      color: white;
+
+      text-decoration: none;
+      font-weight: bold;
+
+      border-radius: 30px;
+
+      box-shadow: 0 10px 25px rgba(119, 67, 160, 0.3);
+
+      transition: 0.3s;
+    }
+
+    .button-main:hover {
+      transform: translateY(-5px);
+    }
+
+    /* ===== PROFILE ===== */
+
+    .profile {
+      width: 90%;
+      max-width: 950px;
+      margin: 0 auto 80px;
+
+      padding: 35px;
+
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(15px);
+
+      border-radius: 30px;
+
+      box-shadow: 0 15px 40px rgba(81, 45, 109, 0.12);
+
+      text-align: center;
+    }
+
+    .profile h2 {
+      color: #68428a;
+      margin-bottom: 25px;
+    }
+
+    .profile-content {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .info {
+      padding: 20px;
+
+      background: #faf5ff;
+
+      border-radius: 20px;
+    }
+
+    .info span {
+      display: block;
+      font-size: 13px;
+      color: #9b83a8;
+      margin-bottom: 8px;
+    }
+
+    .info strong {
+      color: #513568;
+      font-size: 14px;
+    }
+
+    /* ===== TUGAS ===== */
+
+    .tasks {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .title h2 {
+      font-size: 32px;
+      color: #432c59;
+      margin-bottom: 10px;
+    }
+
+    .title p {
+      color: #897394;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      position: relative;
+
+      padding: 28px;
+
+      background: rgba(255,255,255,0.85);
+
+      border-radius: 25px;
+
+      box-shadow: 0 12px 30px rgba(79, 46, 105, 0.1);
+
+      transition: 0.35s;
+
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(83, 48, 111, 0.18);
+    }
+
+    .number {
+      width: 55px;
+      height: 55px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 18px;
+
+      background: linear-gradient(135deg, #8050b5, #b36ddd);
+
+      color: white;
+      font-weight: bold;
+
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      color: #55366d;
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: #806d8c;
+      font-size: 14px;
+      line-height: 1.7;
+
+      min-height: 72px;
+
+      margin-bottom: 20px;
+    }
+
+    .card a {
+      display: inline-block;
+
+      padding: 10px 20px;
+
+      border: 1px solid #d7c0e8;
+      border-radius: 25px;
+
+      text-decoration: none;
+
+      color: #7546a0;
+      font-size: 14px;
+      font-weight: bold;
+
+      transition: 0.3s;
+    }
+
+    .card a:hover {
+      background: #8150b6;
+      color: white;
+    }
+
+    /* ===== PROGRESS ===== */
+
+    .progress {
+      width: 90%;
+      max-width: 900px;
+
+      margin: 80px auto;
+
+      padding: 35px;
+
+      text-align: center;
+
+      background: rgba(255,255,255,0.8);
+
+      border-radius: 28px;
+
+      box-shadow: 0 12px 35px rgba(78, 45, 105, 0.1);
+    }
+
+    .progress h2 {
+      color: #513468;
+      margin-bottom: 10px;
+    }
+
+    .progress p {
+      color: #806d8c;
+      margin-bottom: 20px;
+    }
+
+    .bar {
+      width: 100%;
+      height: 15px;
+
+      background: #eadff1;
+
+      border-radius: 20px;
+
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      width: 100%;
+      height: 100%;
+
+      background: linear-gradient(90deg, #7b4ab0, #b86fe0);
+
+      border-radius: 20px;
+    }
+
+    /* ===== FOOTER ===== */
+
+    footer {
+      margin-top: 80px;
+
+      padding: 30px;
+
+      text-align: center;
+
+      background: rgba(255,255,255,0.6);
+
+      color: #806c8c;
+
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    footer strong {
+      color: #70429a;
+    }
+
+    /* ===== HP ===== */
+
+    @media (max-width: 800px) {
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .profile-content {
+        grid-template-columns: 1fr;
+      }
+
+      nav a {
+        display: none;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        margin-top: 60px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Tugas Algoritma dan Pemrograman</h1>
 
-  <p>Nama: <strong>Claudia Virginia Rusae</strong></p>
-  <p>NIM: <strong>31250001</strong></p>
+  <!-- NAVBAR -->
 
-  <h2>Daftar Tugas</h2>
-  <ul>
-    <li><a href="./minggu-01/">Minggu 01</a></li>
-    <li><a href="./minggu-02/">Minggu 02</a></li>
-    <li><a href="./minggu-03/">Minggu 03</a></li>
-    <li><a href="./minggu-04/">Minggu 04</a></li>
-    <li><a href="./minggu-05/">Minggu 05</a></li>
-    <li><a href="./minggu-06/">Minggu 06</a></li>
-    <li><a href="./minggu-07/">Minggu 07</a></li>
-    <li><a href="./minggu-08/">Minggu 08</a></li>
-    <li><a href="./minggu-09/">Minggu 09</a></li>
-    <li><a href="./minggu-10/">Minggu 10</a></li>
-    <li><a href="./minggu-11/">Minggu 11</a></li>
-    <li><a href="./minggu-12/">Minggu 12</a></li>
-  </ul>
+  <nav>
+
+    <div class="logo">
+      💜 Claudia's Page
+    </div>
+
+    <div>
+      <a href="#profil">Profil</a>
+      <a href="#tugas">Tugas</a>
+      <a href="#progress">Progress</a>
+    </div>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="welcome">
+      ✨ Welcome to My GitHub Page
+    </div>
+
+    <h1>
+      Algoritma &<br>
+      <span>Pemrograman</span>
+    </h1>
+
+    <p>
+      Selamat datang di halaman utama tugas Algoritma dan Pemrograman.
+      Di sini terdapat kumpulan tugas pembelajaran dari minggu ke minggu
+      yang telah saya kerjakan.
+    </p>
+
+    <a href="#tugas" class="button-main">
+      Lihat Tugas Saya ↓
+    </a>
+
+  </section>
+
+
+  <!-- PROFIL -->
+
+  <section class="profile" id="profil">
+
+    <h2>👩🏻‍💻 Profil Mahasiswa</h2>
+
+    <div class="profile-content">
+
+      <div class="info">
+        <span>Nama</span>
+        <strong>Claudia Virginia Rusae</strong>
+      </div>
+
+      <div class="info">
+        <span>NIM</span>
+        <strong>31250001</strong>
+      </div>
+
+      <div class="info">
+        <span>Program Studi</span>
+        <strong>Manajemen Informasi Kesehatan</strong>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TUGAS -->
+
+  <section class="tasks" id="tugas">
+
+    <div class="title">
+
+      <h2>📚 Daftar Tugas</h2>
+
+      <p>
+        Klik salah satu minggu untuk melihat tugas.
+      </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+      <!-- MINGGU 01 -->
+
+      <div class="card">
+
+        <div class="number">01</div>
+
+        <h3>Minggu 01</h3>
+
+        <p>
+          Materi dan latihan awal Algoritma dan Pemrograman.
+        </p>
+
+        <a href="./minggu-01/">
+          Buka Tugas →
+        </a>
+
+      </div>
+
+
+      <!-- MINGGU 02 -->
+
+      <div class="card">
+
+        <div class="number">02</div>
+
+        <h3>Minggu 02</h3>
+
+        <p>
+          Materi dan latihan pemrograman pada minggu kedua.
+        </p>
+
+        <a href="./minggu-02/">
+          Buka Tugas →
+        </a>
+
+      </div>
+
+
+      <!-- MINGGU 03 -->
+
+      <div class="card">
+
+        <div class="number">03</div>
+
+        <h3>Minggu 03</h3>
+
+        <p>
+          Tugas dan latihan Algoritma dan Pemrograman.
+        </p>
+
+        <a href="./minggu-03/">
+          Buka Tugas →
+        </a>
+
+      </div>
+
+
+      <!-- MINGGU 04 -->
+
+      <div class="card">
+
+        <div class="number">04</div>
+
+        <h3>Minggu 04</h3>
+
+        <p>
+          Program mencari 3 angka terbesar menggunakan JavaScript.
+        </p>
+
+        <a href="./minggu-04/">
+          Buka Tugas →
+        </a>
+
+      </div>
+
+
+      <!-- MINGGU 05 -->
+
+      <div class="card">
+
+        <div class="number">05</div>
+
+        <h3>Minggu 05</h3>
+
+        <p>
+          Program pencarian barcode produk menggunakan Binary Search.
+        </p>
+
+        <a href="./minggu-05/">
+          Buka Tugas →
+        </a>
+
+      </div>
+
+
+      <!-- MINGGU 06 -->
+
+      <div class="card">
+
+        <div class="number">06</div>
+
+        <h3>Minggu 06</h3>
+
+        <p>
+          Tugas dan latihan Algoritma dan Pemrograman minggu keenam.
+        </p>
+
+        <a href="./minggu-06/">
+          Buka Tugas →
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- PROGRESS -->
+
+  <section class="progress" id="progress">
+
+    <h2>🚀 Progress Pembelajaran</h2>
+
+    <p>
+      Tugas telah tersusun hingga Minggu 06.
+    </p>
+
+    <div class="bar">
+      <div class="bar-fill"></div>
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 <strong>Claudia Virginia Rusae</strong>
+    </p>
+
+    <p>
+      Algoritma & Pemrograman • STIKes Panti Waluya Malang
+    </p>
+
+  </footer>
 
 </body>
 </html>
