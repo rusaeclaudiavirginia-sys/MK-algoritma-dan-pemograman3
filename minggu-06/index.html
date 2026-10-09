@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bubble Sort | Nilai Mahasiswa</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px 15px;
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #28234b;
+    background:
+        radial-gradient(circle at 8% 8%, #f8dff0, transparent 28%),
+        radial-gradient(circle at 92% 4%, #dcd8ff, transparent 30%),
+        linear-gradient(135deg, #f8f7ff, #fff7fb);
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.header {
+    padding: 35px;
+    border-radius: 25px;
+    color: white;
+    background: linear-gradient(120deg, #6551d9, #9272f1, #df82c1);
+    box-shadow: 0 15px 35px #8b73d52b;
+}
+
+.header small {
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 38px;
+    margin: 15px 0;
+}
+
+.header p {
+    line-height: 1.7;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.badges span {
+    padding: 9px 13px;
+    border: 1px solid #ffffff55;
+    background: #ffffff20;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.stat, .panel {
+    background: #ffffffed;
+    border: 1px solid white;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px #51408a0b;
+}
+
+.stat {
+    padding: 20px;
+}
+
+.stat span {
+    display: block;
+    color: #77758f;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.stat strong {
+    display: block;
+    margin-top: 8px;
+    font-size: 25px;
+}
+
+.panel {
+    padding: 25px;
+    margin-top: 18px;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 21px;
+}
+
+.subtitle {
+    color: #77758f;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+button {
+    padding: 13px 18px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.primary {
+    color: white;
+    background: linear-gradient(120deg, #6e55df, #9473f0);
+    box-shadow: 0 5px 15px #7c60df30;
+}
+
+.secondary {
+    color: #5b45bd;
+    background: #f1edff;
+}
+
+.table-wrap {
+    overflow-x: auto;
+    border: 1px solid #eeeaf8;
+    border-radius: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+th {
+    padding: 15px;
+    color: #6251a7;
+    background: #f4f0ff;
+    text-align: left;
+    font-size: 12px;
+}
+
+td {
+    padding: 14px 15px;
+    border-top: 1px solid #f0edf8;
+    font-size: 14px;
+}
+
+tbody tr:nth-child(even) {
+    background: #fcfaff;
+}
+
+tbody tr:hover {
+    background: #f2edff;
+}
+
+.number {
+    display: inline-grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    color: #6b50cf;
+    background: #f2edff;
+    font-weight: bold;
+}
+
+.score {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 9px;
+    color: #21805b;
+    background: #f0fbf6;
+    font-weight: bold;
+}
+
+.status {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 12px;
+    color: #604eb1;
+    background: #f8f5ff;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.explanation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.explanation div {
+    padding: 17px;
+    border-radius: 14px;
+    background: #faf8ff;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.explanation b {
+    display: block;
+    margin-bottom: 5px;
+    color: #604eb1;
+}
+
+footer {
+    padding: 25px 10px;
+    text-align: center;
+    color: #85809e;
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .stats {
+        gap: 8px;
+    }
+
+    .stat {
+        padding: 12px;
+    }
+
+    .stat strong {
+        font-size: 20px;
+    }
+
+    .panel {
+        padding: 17px;
+    }
+
+    .explanation {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="header">
+        <small>ALGORITMA & PEMROGRAMAN</small>
+
+        <h1>Bubble Sort<br>Nilai Mahasiswa ✦</h1>
+
+        <p>
+            Program pengurutan nilai ujian 15 mahasiswa
+            menggunakan algoritma Bubble Sort.
+            Pilih metode pengurutan dan lihat hasilnya!
+        </p>
+
+        <div class="badges">
+            <span>✧ 15 Mahasiswa</span>
+            <span>↑ Ascending</span>
+            <span>↓ Descending</span>
+            <span>JavaScript</span>
+        </div>
+    </header>
+
+    <section class="stats">
+        <div class="stat">
+            <span>JUMLAH MAHASISWA</span>
+            <strong>15 orang</strong>
+        </div>
+
+        <div class="stat">
+            <span>NILAI TERTINGGI</span>
+            <strong id="highest">95</strong>
+        </div>
+
+        <div class="stat">
+            <span>NILAI TERENDAH</span>
+            <strong id="lowest">70</strong>
+        </div>
+    </section>
+
+    <section class="panel">
+
+        <h2>✦ Daftar Nilai Mahasiswa</h2>
+
+        <p class="subtitle">
+            Data awal ditampilkan berdasarkan nomor absen.
+            Gunakan tombol berikut untuk mengurutkan nilai.
+        </p>
+
+        <div class="buttons">
+            <button class="primary" onclick="sortData('asc')">
+                ↑ Ascending
+            </button>
+
+            <button class="primary" onclick="sortData('desc')">
+                ↓ Descending
+            </button>
+
+            <button class="secondary" onclick="resetData()">
+                ↺ Reset Data
+            </button>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>NO. ABSEN</th>
+                        <th>NAMA MAHASISWA</th>
+                        <th>NILAI UJIAN</th>
+                    </tr>
+                </thead>
+
+                <tbody id="studentRows"></tbody>
+            </table>
+        </div>
+
+        <div class="status" id="status">
+            Silakan pilih Ascending atau Descending untuk
+            mulai mengurutkan nilai mahasiswa.
+        </div>
+
+    </section>
+
+    <section class="panel">
+
+        <h2>✦ Cara Kerja Bubble Sort</h2>
+
+        <p class="subtitle">
+            Bubble Sort membandingkan dua nilai yang berdekatan
+            dan menukarnya jika urutannya belum sesuai.
+        </p>
+
+        <div class="explanation">
+
+            <div>
+                <b>↑ Ascending</b>
+                Mengurutkan nilai dari yang terkecil
+                menuju nilai terbesar.
+            </div>
+
+            <div>
+                <b>↓ Descending</b>
+                Mengurutkan nilai dari yang terbesar
+                menuju nilai terkecil.
+            </div>
+
+            <div>
+                <b>↔ Pertukaran</b>
+                Jika urutan pasangan nilai salah,
+                kedua data ditukar posisinya.
+            </div>
+
+            <div>
+                <b>✓ Optimasi swapped</b>
+                Jika satu putaran tidak menghasilkan
+                pertukaran, proses dihentikan lebih awal.
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        Tugas Algoritma dan Pemrograman · Bubble Sort
+    </footer>
+
+</div>
+
+<script>
+
+// Array berisi 15 mahasiswa
+const mahasiswa = [
+    { absen: 1, nama: "Claudia Virginia Rusae", nilai: 85 },
+    { absen: 2, nama: "Maria Calista Kurnia", nilai: 90 },
+    { absen: 3, nama: "Andi Pratama", nilai: 78 },
+    { absen: 4, nama: "Siti Aisyah", nilai: 92 },
+    { absen: 5, nama: "Budi Santoso", nilai: 75 },
+    { absen: 6, nama: "Putri Amelia", nilai: 88 },
+    { absen: 7, nama: "Rizky Saputra", nilai: 80 },
+    { absen: 8, nama: "Dinda Permata", nilai: 95 },
+    { absen: 9, nama: "Fajar Ramadhan", nilai: 70 },
+    { absen: 10, nama: "Natalia Lestari", nilai: 83 },
+    { absen: 11, nama: "Kristinas Skolastika", nilai: 87 },
+    { absen: 12, nama: "Emilda Kurniati Yane", nilai: 89 },
+    { absen: 13, nama: "Nova", nilai: 76 },
+    { absen: 14, nama: "Caca", nilai: 91 },
+    { absen: 15, nama: "Vivi", nilai: 82 }
+];
+
+// Menampilkan data mahasiswa
+function render(data) {
+
+    const tabel = document.getElementById("studentRows");
+
+    tabel.innerHTML = data.map(function(mhs) {
+
+        return `
+            <tr>
+                <td>
+                    <span class="number">${mhs.absen}</span>
+                </td>
+
+                <td>${mhs.nama}</td>
+
+                <td>
+                    <span class="score">${mhs.nilai}</span>
+                </td>
+            </tr>
+        `;
+
+    }).join("");
+
+}
+
+// Algoritma Bubble Sort
+function sortData(direction) {
+
+    // Salin data agar array awal tidak berubah
+    const data = mahasiswa.map(function(mhs) {
+        return { ...mhs };
+    });
+
+    let swaps = 0;
+
+    for (let i = 0; i < data.length - 1; i++) {
+
+        let swapped = false;
+
+        for (let j = 0; j < data.length - 1 - i; j++) {
+
+            let perluTukar;
+
+            if (direction === "asc") {
+                perluTukar =
+                    data[j].nilai > data[j + 1].nilai;
+            } else {
+                perluTukar =
+                    data[j].nilai < data[j + 1].nilai;
+            }
+
+            if (perluTukar) {
+
+                let sementara = data[j];
+
+                data[j] = data[j + 1];
+                data[j + 1] = sementara;
+
+                swapped = true;
+                swaps++;
+            }
+        }
+
+        // Berhenti jika tidak ada pertukaran
+        if (!swapped) {
+            break;
+        }
+
+    }
+
+    render(data);
+
+    if (direction === "asc") {
+
+        document.getElementById("status").textContent =
+            "✓ Pengurutan Ascending berhasil! " +
+            "Nilai tersusun dari terkecil ke terbesar. " +
+            "Jumlah pertukaran: " + swaps + " kali.";
+
+    } else {
+
+        document.getElementById("status").textContent =
+            "✓ Pengurutan Descending berhasil! " +
+            "Nilai tersusun dari terbesar ke terkecil. " +
+            "Jumlah pertukaran: " + swaps + " kali.";
+
+    }
+
+}
+
+// Mengembalikan data ke urutan nomor absen
+function resetData() {
+
+    render(mahasiswa);
+
+    document.getElementById("status").textContent =
+        "Data berhasil dikembalikan ke urutan nomor absen.";
+
+}
+
+// Menghitung nilai tertinggi dan terendah
+document.getElementById("highest").textContent =
+    Math.max(...mahasiswa.map(mhs => mhs.nilai));
+
+document.getElementById("lowest").textContent =
+    Math.min(...mahasiswa.map(mhs => mhs.nilai));
+
+// Menampilkan data ketika halaman dibuka
+render(mahasiswa);
+
+</script>
+
+</body>
+</html>
