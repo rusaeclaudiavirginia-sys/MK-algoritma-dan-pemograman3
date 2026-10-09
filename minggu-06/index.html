@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bubble Sort Mahasiswa</title>
+<title>Bubble Sort | Student Data Visualization</title>
 
 <style>
 * {
@@ -12,66 +12,299 @@
 
 body {
     margin: 0;
+    padding: 28px 16px;
     font-family: "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(135deg, #071426, #142b46, #243c55);
+    background: linear-gradient(135deg, #030914, #10243b, #1b3048);
     color: #f1f5f9;
     min-height: 100vh;
-    padding: 30px 15px;
 }
 
 .container {
+    width: 100%;
     max-width: 1150px;
     margin: auto;
 }
 
-header {
-    text-align: center;
+/* =========================
+   JUDUL UTAMA
+========================= */
+
+.luxury-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 530px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px 35px;
     margin-bottom: 30px;
+    border: 1px solid rgba(203, 213, 225, 0.35);
+    border-radius: 24px;
+    background:
+        radial-gradient(ellipse at 50% 45%,
+            rgba(65, 93, 126, 0.38),
+            transparent 55%),
+        linear-gradient(145deg,
+            #030914,
+            #0b1b30 45%,
+            #101f33 70%,
+            #030914);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
 }
 
-header h1 {
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+}
+
+.ambient-glow {
+    position: absolute;
+    z-index: -1;
+    width: 350px;
+    height: 350px;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(147, 197, 253, 0.1);
+    filter: blur(85px);
+    border-radius: 50%;
+    animation: ambientPulse 4s ease-in-out infinite alternate;
+}
+
+.top-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    color: #cbd5e1;
+    font-size: 10px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.label-line {
+    width: 35px;
+    height: 1px;
+    background: #94a3b8;
+}
+
+.emblem {
+    color: #f1f5f9;
+    font-size: 43px;
+    margin-top: 30px;
+    text-shadow: 0 0 25px #bfdbfe;
+    animation: emblemGlow 2.5s ease-in-out infinite alternate;
+}
+
+.eyebrow {
+    color: #94a3b8;
+    font-size: 10px;
+    letter-spacing: 6px;
+    margin: 12px 0 15px;
+}
+
+.luxury-title {
+    margin: 0;
+    color: #f8fafc;
+    font-size: clamp(48px, 9vw, 95px);
+    line-height: 0.98;
+    letter-spacing: 7px;
+    font-weight: 900;
+    text-shadow: 0 5px 30px rgba(203, 213, 225, 0.25);
+}
+
+.luxury-title span {
+    display: block;
+    margin-top: 9px;
+    background: linear-gradient(
+        180deg,
+        #ffffff,
+        #dbe4ef 35%,
+        #8798ac 65%,
+        #f8fafc
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.silver-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
     color: #e2e8f0;
-    font-size: 34px;
-    margin-bottom: 8px;
+    margin: 28px auto 18px;
+    max-width: 280px;
 }
 
-header p {
-    color: #b8c7d9;
+.silver-divider::before,
+.silver-divider::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(90deg, transparent, #e2e8f0);
 }
+
+.silver-divider span {
+    font-size: 22px;
+    animation: emblemGlow 2s infinite alternate;
+}
+
+.hero-description {
+    color: #dbe4ef;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.hero-tags {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 25px 0;
+    color: #cbd5e1;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.explore-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 13px 22px;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    color: #0b1728;
+    background: linear-gradient(135deg, #f8fafc, #94a3b8);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.explore-button:hover {
+    color: white;
+    background: #243b53;
+    transform: translateY(-3px);
+}
+
+.hero-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 40px;
+    color: #94a3b8;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.star-field {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.luxury-star {
+    position: absolute;
+    color: #e2e8f0;
+    opacity: 0;
+    animation: starTwinkle ease-in-out infinite;
+    pointer-events: none;
+}
+
+.corner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-color: rgba(203, 213, 225, 0.6);
+    border-style: solid;
+    pointer-events: none;
+}
+
+.corner-tl {
+    top: 14px;
+    left: 14px;
+    border-width: 1px 0 0 1px;
+}
+
+.corner-tr {
+    top: 14px;
+    right: 14px;
+    border-width: 1px 1px 0 0;
+}
+
+.corner-bl {
+    bottom: 14px;
+    left: 14px;
+    border-width: 0 0 1px 1px;
+}
+
+.corner-br {
+    bottom: 14px;
+    right: 14px;
+    border-width: 0 1px 1px 0;
+}
+
+/* =========================
+   KARTU DAN TOMBOL
+========================= */
 
 .card {
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(203, 213, 225, 0.25);
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(203, 213, 225, 0.23);
     border-radius: 18px;
-    padding: 24px;
-    margin-bottom: 22px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+    margin-bottom: 24px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
 
 h2 {
-    color: #dbeafe;
+    color: #e2e8f0;
     margin-top: 0;
+    font-size: 21px;
+}
+
+h3 {
+    color: #dbeafe;
+    margin-top: 24px;
+}
+
+p {
+    line-height: 1.8;
+    color: #cbd5e1;
 }
 
 .buttons {
     display: flex;
-    gap: 12px;
     flex-wrap: wrap;
-    margin-bottom: 20px;
+    gap: 12px;
+    margin: 20px 0;
 }
 
 button {
-    border: none;
-    padding: 12px 20px;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
+    font-family: inherit;
 }
 
-button:hover {
+.sort-button {
+    padding: 12px 22px;
+    border-radius: 9px;
+    border: 1px solid #cbd5e1;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.sort-button:hover {
     transform: translateY(-2px);
-    filter: brightness(1.1);
+    filter: brightness(1.12);
 }
 
 .ascending {
@@ -85,56 +318,32 @@ button:hover {
 }
 
 .reset {
-    background: #243b53;
-    color: white;
-    border: 1px solid #94a3b8;
+    background: #142b46;
+    color: #f1f5f9;
 }
 
 .status {
-    color: #cbd5e1;
-    margin: 12px 0;
+    padding: 13px;
+    background: rgba(203, 213, 225, 0.07);
+    border-left: 3px solid #cbd5e1;
+    border-radius: 5px;
+    color: #dbeafe;
 }
 
-.table-wrap {
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 500px;
-}
-
-th, td {
-    padding: 12px;
-    border-bottom: 1px solid rgba(203, 213, 225, 0.18);
-    text-align: left;
-}
-
-th {
-    background: rgba(203, 213, 225, 0.12);
-    color: #e2e8f0;
-}
-
-tbody tr:hover {
-    background: rgba(203, 213, 225, 0.08);
-}
-
-.score {
-    font-weight: bold;
-    color: #bfdbfe;
-}
+/* =========================
+   GRAFIK BATANG LURUS
+========================= */
 
 .chart {
     display: flex;
     flex-direction: column;
-    gap: 13px;
-    margin-top: 20px;
+    gap: 14px;
+    margin-top: 25px;
 }
 
 .bar-row {
     display: grid;
-    grid-template-columns: minmax(105px, 160px) 1fr 40px;
+    grid-template-columns: minmax(105px, 170px) 1fr 38px;
     gap: 12px;
     align-items: center;
 }
@@ -146,53 +355,150 @@ tbody tr:hover {
 }
 
 .bar-track {
-    height: 23px;
-    background: rgba(226, 232, 240, 0.12);
-    border-radius: 4px;
+    height: 24px;
+    background: rgba(226, 232, 240, 0.1);
+    border: 1px solid rgba(203, 213, 225, 0.1);
+    border-radius: 3px;
     overflow: hidden;
 }
 
 .bar {
     height: 100%;
-    width: 0;
     background: linear-gradient(90deg, #64748b, #dbeafe);
-    border-radius: 4px;
-    transition: width 0.5s ease;
+    border-radius: 2px;
+    transition: width 0.45s ease;
 }
 
 .bar-row.highest .bar {
-    background: linear-gradient(90deg, #bfdbfe, #ffffff);
+    background: linear-gradient(90deg, #cbd5e1, #ffffff);
 }
 
 .bar-row.lowest .bar {
-    background: linear-gradient(90deg, #475569, #94a3b8);
+    background: linear-gradient(90deg, #334155, #94a3b8);
 }
 
 .bar-value {
     color: #f1f5f9;
     font-weight: bold;
     text-align: right;
+    font-size: 13px;
 }
 
 .legend {
     display: flex;
-    gap: 18px;
     flex-wrap: wrap;
-    font-size: 13px;
-    color: #cbd5e1;
+    gap: 15px;
     margin-top: 20px;
+    color: #cbd5e1;
+    font-size: 12px;
+}
+
+/* =========================
+   TABEL
+========================= */
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 480px;
+}
+
+th, td {
+    padding: 13px;
+    text-align: left;
+    border-bottom: 1px solid rgba(203, 213, 225, 0.15);
+}
+
+th {
+    background: rgba(203, 213, 225, 0.1);
+    color: #e2e8f0;
+}
+
+tbody tr:hover {
+    background: rgba(203, 213, 225, 0.07);
+}
+
+.score {
+    font-weight: bold;
+    color: #bfdbfe;
+}
+
+.highest-score {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.lowest-score {
+    color: #94a3b8;
+    font-weight: bold;
 }
 
 footer {
     text-align: center;
     color: #94a3b8;
     padding: 15px;
-    font-size: 13px;
+    font-size: 12px;
+}
+
+/* =========================
+   ANIMASI
+========================= */
+
+@keyframes starTwinkle {
+    0%, 100% {
+        opacity: 0.12;
+        transform: scale(0.6) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.4) rotate(45deg);
+        text-shadow: 0 0 14px #dbeafe;
+    }
+}
+
+@keyframes emblemGlow {
+    from {
+        opacity: 0.65;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.12);
+    }
+}
+
+@keyframes ambientPulse {
+    from {
+        opacity: 0.5;
+        transform: translateX(-50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.15);
+    }
 }
 
 @media (max-width: 600px) {
-    header h1 {
-        font-size: 26px;
+    body {
+        padding: 15px 10px;
+    }
+
+    .luxury-hero {
+        min-height: 470px;
+        padding: 45px 14px 25px;
+    }
+
+    .top-label {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .luxury-title {
+        letter-spacing: 3px;
     }
 
     .card {
@@ -207,6 +513,11 @@ footer {
     .student-name {
         font-size: 11px;
     }
+
+    .hero-footer {
+        gap: 8px;
+        letter-spacing: 1px;
+    }
 }
 </style>
 </head>
@@ -214,48 +525,111 @@ footer {
 <body>
 <div class="container">
 
-<header>
-    <h1>✦ BUBBLE SORT ✦</h1>
-    <p>Pengurutan Nilai Mahasiswa Menggunakan Algoritma Bubble Sort</p>
+<!-- JUDUL UTAMA -->
+<header class="luxury-hero">
+    <div class="ambient-glow"></div>
+    <div class="star-field" id="starField"></div>
+
+    <div class="hero-inner">
+        <div class="top-label">
+            <span class="label-line"></span>
+            ALGORITHM & PROGRAMMING
+            <span class="label-line"></span>
+        </div>
+
+        <div class="emblem">✦</div>
+
+        <p class="eyebrow">DATA SORTING VISUALIZATION</p>
+
+        <h1 class="luxury-title">
+            BUBBLE
+            <span>SORT</span>
+        </h1>
+
+        <div class="silver-divider">
+            <span>✧</span>
+        </div>
+
+        <p class="hero-description">
+            Visualisasi Algoritma Pengurutan Data Mahasiswa
+        </p>
+
+        <div class="hero-tags">
+            <span>01 · ASCENDING</span>
+            <span>✦</span>
+            <span>02 · DESCENDING</span>
+        </div>
+
+        <button class="explore-button"
+            onclick="document.getElementById('dataSection').scrollIntoView({behavior:'smooth'})">
+            Lihat Data Mahasiswa <span>↓</span>
+        </button>
+
+        <div class="hero-footer">
+            <span>PRECISION</span>
+            <span>✦</span>
+            <span>ORDER</span>
+            <span>✦</span>
+            <span>EFFICIENCY</span>
+        </div>
+    </div>
+
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
 </header>
 
+<!-- PENGATURAN -->
 <section class="card">
     <h2>⚙️ Pengaturan Pengurutan</h2>
 
+    <p>
+        Pilih metode pengurutan untuk melihat perubahan urutan
+        nilai mahasiswa pada tabel dan grafik.
+    </p>
+
     <div class="buttons">
-        <button class="ascending" onclick="sortData('asc')">
+        <button class="sort-button ascending"
+            onclick="sortData('asc')">
             ↑ Ascending
         </button>
 
-        <button class="descending" onclick="sortData('desc')">
+        <button class="sort-button descending"
+            onclick="sortData('desc')">
             ↓ Descending
         </button>
 
-        <button class="reset" onclick="resetData()">
+        <button class="sort-button reset"
+            onclick="resetData()">
             ↻ Reset
         </button>
     </div>
 
-    <p class="status" id="status">
+    <div class="status" id="status">
         Urutan awal: sesuai daftar mahasiswa.
-    </p>
+    </div>
 </section>
 
+<!-- GRAFIK -->
 <section class="card">
     <h2>📊 Grafik Batang Nilai Mahasiswa</h2>
-    <p class="status">
-        Grafik batang lurus berdasarkan nilai mahasiswa.
+
+    <p>
+        Setiap batang menunjukkan nilai mahasiswa. Semakin panjang
+        batang, semakin tinggi nilai yang diperoleh.
     </p>
 
     <div class="chart" id="chart"></div>
 
     <div class="legend">
-        <span>▰ Nilai tertinggi: putih perak</span>
-        <span>▰ Nilai terendah: abu-abu</span>
+        <span>▰ Warna perak terang: nilai tertinggi</span>
+        <span>▰ Abu-abu: nilai terendah</span>
     </div>
 </section>
 
-<section class="card">
+<!-- TABEL -->
+<section class="card" id="dataSection">
     <h2>📋 Tabel Nilai Mahasiswa</h2>
 
     <div class="table-wrap">
@@ -272,8 +646,52 @@ footer {
     </div>
 </section>
 
+<!-- PEMBAHASAN -->
+<section class="card">
+    <h2>📖 Pembahasan Bubble Sort</h2>
+
+    <h3>1. Pengertian Bubble Sort</h3>
+    <p>
+        Bubble Sort adalah algoritma pengurutan data dengan cara
+        membandingkan dua elemen yang berdekatan. Jika urutannya
+        tidak sesuai, kedua elemen akan ditukar sampai data
+        tersusun sesuai urutan yang diinginkan.
+    </p>
+
+    <h3>2. Ascending</h3>
+    <p>
+        Ascending merupakan pengurutan data dari nilai terkecil
+        hingga terbesar. Pada program ini, nilai mahasiswa
+        diurutkan mulai dari nilai terendah sampai nilai tertinggi.
+    </p>
+
+    <h3>3. Descending</h3>
+    <p>
+        Descending merupakan pengurutan data dari nilai terbesar
+        hingga terkecil. Pada program ini, mahasiswa dengan nilai
+        tertinggi akan ditampilkan terlebih dahulu.
+    </p>
+
+    <h3>4. Cara Kerja Program</h3>
+    <p>
+        Program membandingkan nilai mahasiswa yang berdekatan.
+        Apabila urutannya tidak sesuai dengan metode yang dipilih,
+        kedua nilai ditukar. Proses perbandingan dilakukan berulang
+        hingga seluruh data terurut. Setelah itu, tabel dan grafik
+        diperbarui sesuai urutan terbaru.
+    </p>
+
+    <h3>5. Kesimpulan</h3>
+    <p>
+        Algoritma Bubble Sort dapat digunakan untuk mengurutkan
+        nilai mahasiswa secara Ascending maupun Descending.
+        Tampilan tabel dan grafik batang membantu pengguna
+        memahami hasil pengurutan dengan lebih mudah.
+    </p>
+</section>
+
 <footer>
-    Tugas Algoritma dan Pemrograman · Bubble Sort
+    ✦ BUBBLE SORT · ALGORITHM & PROGRAMMING ✦
 </footer>
 
 </div>
@@ -301,19 +719,26 @@ let data = [...originalData];
 
 function bubbleSort(arr, mode) {
     let hasil = [...arr];
-    let n = hasil.length;
+    const n = hasil.length;
 
     for (let i = 0; i < n - 1; i++) {
+        let swapped = false;
+
         for (let j = 0; j < n - i - 1; j++) {
-            let tukar = mode === "asc"
+            const perluTukar = mode === "asc"
                 ? hasil[j].nilai > hasil[j + 1].nilai
                 : hasil[j].nilai < hasil[j + 1].nilai;
 
-            if (tukar) {
-                let sementara = hasil[j];
+            if (perluTukar) {
+                const sementara = hasil[j];
                 hasil[j] = hasil[j + 1];
                 hasil[j + 1] = sementara;
+                swapped = true;
             }
+        }
+
+        if (!swapped) {
+            break;
         }
     }
 
@@ -325,8 +750,8 @@ function sortData(mode) {
 
     document.getElementById("status").textContent =
         mode === "asc"
-        ? "Ascending: nilai diurutkan dari terkecil ke terbesar."
-        : "Descending: nilai diurutkan dari terbesar ke terkecil.";
+        ? "Ascending aktif: nilai diurutkan dari terkecil ke terbesar."
+        : "Descending aktif: nilai diurutkan dari terbesar ke terkecil.";
 
     render();
 }
@@ -335,29 +760,40 @@ function resetData() {
     data = [...originalData];
 
     document.getElementById("status").textContent =
-        "Urutan awal: sesuai daftar mahasiswa.";
+        "Urutan awal berhasil dikembalikan.";
 
     render();
-}
-
-function render() {
-    renderTable();
-    renderChart();
 }
 
 function renderTable() {
     const tbody = document.getElementById("studentTable");
     tbody.innerHTML = "";
 
+    const tertinggi = Math.max(...data.map(m => m.nilai));
+    const terendah = Math.min(...data.map(m => m.nilai));
+
     data.forEach((mahasiswa, index) => {
         const row = document.createElement("tr");
 
-        row.innerHTML = `
-            <td>${index + 1}</td>
-            <td>${mahasiswa.nama}</td>
-            <td class="score">${mahasiswa.nilai}</td>
-        `;
+        let kelasNilai = "score";
 
+        if (mahasiswa.nilai === tertinggi) {
+            kelasNilai += " highest-score";
+        } else if (mahasiswa.nilai === terendah) {
+            kelasNilai += " lowest-score";
+        }
+
+        const nomor = document.createElement("td");
+        nomor.textContent = index + 1;
+
+        const nama = document.createElement("td");
+        nama.textContent = mahasiswa.nama;
+
+        const nilai = document.createElement("td");
+        nilai.className = kelasNilai;
+        nilai.textContent = mahasiswa.nilai;
+
+        row.append(nomor, nama, nilai);
         tbody.appendChild(row);
     });
 }
@@ -366,19 +802,18 @@ function renderChart() {
     const chart = document.getElementById("chart");
     chart.innerHTML = "";
 
-    const nilaiTertinggi = Math.max(...data.map(m => m.nilai));
-    const nilaiTerendah = Math.min(...data.map(m => m.nilai));
+    const tertinggi = Math.max(...data.map(m => m.nilai));
+    const terendah = Math.min(...data.map(m => m.nilai));
 
     data.forEach(mahasiswa => {
         const row = document.createElement("div");
-
         row.className = "bar-row";
 
-        if (mahasiswa.nilai === nilaiTertinggi) {
+        if (mahasiswa.nilai === tertinggi) {
             row.classList.add("highest");
         }
 
-        if (mahasiswa.nilai === nilaiTerendah) {
+        if (mahasiswa.nilai === terendah) {
             row.classList.add("lowest");
         }
 
@@ -395,15 +830,41 @@ function renderChart() {
 
         track.appendChild(bar);
 
-        const value = document.createElement("div");
-        value.className = "bar-value";
-        value.textContent = mahasiswa.nilai;
+        const nilai = document.createElement("div");
+        nilai.className = "bar-value";
+        nilai.textContent = mahasiswa.nilai;
 
-        row.append(nama, track, value);
+        row.append(nama, track, nilai);
         chart.appendChild(row);
     });
 }
 
+function renderStars() {
+    const field = document.getElementById("starField");
+
+    for (let i = 0; i < 55; i++) {
+        const star = document.createElement("span");
+
+        star.className = "luxury-star";
+        star.textContent = Math.random() > 0.5 ? "✦" : "✧";
+
+        star.style.left = Math.random() * 100 + "%";
+        star.style.top = Math.random() * 100 + "%";
+        star.style.fontSize = (8 + Math.random() * 14) + "px";
+        star.style.animationDuration =
+            (1.5 + Math.random() * 3) + "s";
+        star.style.animationDelay = Math.random() * 4 + "s";
+
+        field.appendChild(star);
+    }
+}
+
+function render() {
+    renderTable();
+    renderChart();
+}
+
+renderStars();
 render();
 </script>
 
